@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { BoardsComponent } from './components/boards/boards.component';
 import { DataService } from './services/data.service';
 import { ListsComponent } from './components/lists/lists.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ListsComponent } from './components/lists/lists.component';
     BrowserModule,
     FormsModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
