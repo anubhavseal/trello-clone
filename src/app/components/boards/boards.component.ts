@@ -9,28 +9,27 @@ import { DataService } from '../../services/data.service';
 })
 export class BoardsComponent implements OnInit {
 
-  private dataService: DataService;
-  boards: Board[];
-  board: Board;
+	private static dataService: DataService;
+	boards: Board[];
+	board = {};
 
-  constructor(dataService: DataService) { 
-    this.dataService = dataService;
-    this.boards = [];
-    this.board = { id: 1, title: 'Board Title' }
-  }
+  	constructor(dataService: DataService) { 
+    	BoardsComponent.dataService = dataService;
+  	}
 
-  createBoard(board: Board): void{
-    this.board.id = this.dataService.generateBoardId();
-    this.dataService.saveBoard(this.board);
-    this.getBoards();
-  }
+	createBoard(): void{
+		this.board['id'] = BoardsComponent.dataService.getID();
+		BoardsComponent.dataService.saveBoard(this.board as Board);
+		this.getBoards();
+	}
 
-  getBoards(): void {
-      this.boards = this.dataService.getBoards();
-  }
+	getBoards(): void {
+		this.boards = BoardsComponent.dataService.getBoards();
+	}
   
-  ngOnInit() {
-    if (DataService.boardsStorageInitialized) this.getBoards();
-  }
+	ngOnInit() {
+		this.getBoards();
+		console.log(this.hello);
+	}
 
 }
