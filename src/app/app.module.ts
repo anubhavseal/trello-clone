@@ -11,14 +11,12 @@ import { ListsComponent } from './components/lists/lists.component';
 import { DataService } from './services/data.service';
 
 import { AppRoutingModule } from './app-routing.module';
-import { CreateBoardComponent } from './create-board/create-board.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardsComponent,
-    ListsComponent,
-    CreateBoardComponent
+    ListsComponent
   ],
   imports: [
     BrowserModule,

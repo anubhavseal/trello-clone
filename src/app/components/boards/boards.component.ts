@@ -17,19 +17,25 @@ export class BoardsComponent implements OnInit {
     	BoardsComponent.dataService = dataService;
   	}
 
-	createBoard(): void{
-		this.board['id'] = BoardsComponent.dataService.getID();
-		BoardsComponent.dataService.saveBoard(this.board as Board);
+	createBoard(): void {
+		BoardsComponent.dataService.saveBoard(this.board as Board)
+		.then(response => console.log(response.text()))
+		.catch(err => console.log(err));
 		this.getBoards();
 	}
 
 	getBoards(): void {
-		this.boards = BoardsComponent.dataService.getBoards();
+		BoardsComponent.dataService.getBoards()
+		.then(response => {
+			response.json().then(data => {
+				this.boards = data;
+			});
+		})
+		.catch(err => {return console.log(err)});
 	}
   
 	ngOnInit() {
 		this.getBoards();
-		console.log(this.hello);
 	}
 
 }
