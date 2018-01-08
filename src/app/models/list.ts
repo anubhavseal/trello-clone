@@ -1,5 +1,5 @@
 export class List {
     id: number;
-    title: number;
+    title: String;
     boardId: number;
 }

@@ -19,9 +19,11 @@ export class BoardsComponent implements OnInit {
 
 	createBoard(): void {
 		BoardsComponent.dataService.saveBoard(this.board as Board)
-		.then(response => console.log(response.text()))
+		.then(response => {console.log(response.text())
+			this.getBoards();
+		})
 		.catch(err => console.log(err));
-		this.getBoards();
+		
 	}
 
 	getBoards(): void {

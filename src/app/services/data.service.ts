@@ -6,22 +6,31 @@ import * as store from 'storejs';
 @Injectable()
 export class DataService {
 
-	private boards: Board[];
-	private lists: List[];
-
-
 	constructor() {
 	}
 
 	getBoards(): Promise<any> {
-		return fetch('https://demo4104384.mockable.io/boards');
-				
+		return fetch('http://localhost:8080/boards');
 	}
 
 	saveBoard(board: Board): Promise<any> {
-		return fetch('http://demo4104384.mockable.io/',{
-			method:'POST'
+		console.log('board', board);
+		return fetch('http://localhost:8080/boards', {
+			method:'POST',
+			mode: 'cors',
+			body:JSON.stringify(board),
+			headers: {
+                "Content-Type": "application/json"
+            }
 		});
+	}
+
+	getLists(): Promise<any> {
+		return;
+	}
+
+	saveList(list: List): Promise<any> {
+		return;
 	}
 	
 }

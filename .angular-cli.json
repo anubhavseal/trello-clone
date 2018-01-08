@@ -23,7 +23,8 @@
         "styles.css"
       ],
       "scripts": ["../node_modules/storejs/dist/store.js",
-      "./Stopwatch.js"
+      "./Stopwatch.js",
+      "./sw.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

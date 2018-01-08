@@ -7,7 +7,7 @@
 			<form> 
 				<div class="form-group">
 					<label for="">What shall we call the board?</label>
-					<input type="text" name="board.id" [(ngModel)]="board.title" class="form-control" placeholder="Board Name">
+					<input type="text" name="board.id" [(ngModel)]="board.name" class="form-control" placeholder="Board Name">
 				</div>
 				<div class="form-group">
 					<button type="submit" (click)="createBoard()" class="btn btn-success">Create</button>
@@ -18,7 +18,7 @@
 </div>
 <div *ngFor="let board of boards" class="col-md-4">
 		<div class="panel panel-success">
-			<div class="panel-heading" routerLink="/lists" [style.pointer:hover]>{{board.title}}</div>
+			<div class="panel-heading" routerLink="/lists" [style.pointer:hover]>{{board.name}}</div>
 			<div class="panel-body"></div>
 		</div>
 </div>
